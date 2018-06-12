@@ -1,0 +1,2 @@
+include README.md
+recursive-include djdt_api_requests/templates *

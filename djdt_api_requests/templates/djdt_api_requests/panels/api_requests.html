@@ -1,0 +1,41 @@
+{% load i18n %}
+
+<h4>{% trans "Summary" %}</h4>
+<table>
+	<thead>
+	<tr>
+		<th>{% trans "Total requests" %}</th>
+		<th>{% trans "Total time" %}</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>{{ num_requests }}</td>
+		<td>{{ total_time|floatformat:"3" }} ms</td>
+	</tr>
+	</tbody>
+</table>
+
+{% if requests %}
+<h4>{% trans "Requests" %}</h4>
+<table>
+	<thead>
+		<tr>
+			<th>{% trans "Time (ms)" %}</th>
+			<th>{% trans "Method" %}</th>
+			<th>{% trans "URL" %}</th>
+			<th>{% trans "Status" %}</th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for request in requests %}
+		<tr class="{% cycle 'djDebugOdd' 'djDebugEven' %}" id="apiRequestsMain_{{ forloop.counter }}">
+			<td>{{ request.elapsed|floatformat:"3" }}</td>
+			<td>{{ request.method|escape }}</td>
+			<td>{{ request.url|escape }}</td>
+			<td>{{ request.status_code|escape }}</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+{% endif %}

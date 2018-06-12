@@ -18,8 +18,11 @@ setup(
     author_email='systems@ingresso.co.uk',
     install_requires=['django-debug-toolbar'],
     classifiers=[
+        'Development Status :: 4 - Beta',
         'Framework :: Django',
         'Intended Audience :: Developers',
+        'License :: OSI Approved :: MIT License',
+        'Natural Language :: English',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
